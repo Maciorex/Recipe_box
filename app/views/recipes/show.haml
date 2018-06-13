@@ -1,0 +1,6 @@
+%h3= @recipe.title
+%p= @recipe.description
+.btn-group
+  = link_to "Back", root_path, class: "btn btn-default"
+  = link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-default"
+  = link_to "Delete", recipe_path(@recipe), method: :delete, data: { confirm: "Are you suer?" }, class: "btn btn-danger"
