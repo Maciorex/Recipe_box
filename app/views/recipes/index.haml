@@ -1,6 +1,5 @@
 %h1 Recipes index
 
-= link_to "New recipe", new_recipe_path
 %hr
 - @recipes.each do |recipe|
   %p= link_to recipe.title, recipe_path(recipe)

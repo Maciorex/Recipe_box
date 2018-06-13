@@ -1,5 +1,6 @@
 %h3= @recipe.title
 %p= @recipe.description
+%p= image_tag(@recipe.image)
 .btn-group
   = link_to "Back", root_path, class: "btn btn-default"
   = link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-default"
