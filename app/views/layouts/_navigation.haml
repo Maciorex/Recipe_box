@@ -1,0 +1,8 @@
+%nav.navbar.navbar-default
+  .container
+    .navbar-header
+      = link_to "R-Box", root_path, class: "navbar-brand"
+    %ul.nav.navbar-nav.navbar-left
+      %li= link_to "Add Recipie", new_recipe_path
+    %ul.nav.navbar-nav.navbar-right
+      %li= link_to "Sign out", root_path

@@ -1,0 +1,30 @@
+= simple_form_for @recipe, html: { multipart: true } do |f|
+  - if @recipe.errors.any?
+    .errors
+      %p
+        = @recipe.errors.count
+        Errors prevented from being saved
+      %p
+        - @recipe.errors.full_messages.each do |msg|
+          %li= msg
+  .panel-body
+    = f.input :title, class: "form-control"
+    = f.input :description, class: "form-control"
+    = f.input :image, class: "form-control"
+
+    .row
+      .col-md-6
+        %h4 Ingredients
+        #ingredients
+          = f.simple_fields_for :ingredients do |ingredients|
+            = render 'ingredient_fields', f: ingredients
+          .links
+            = link_to_add_association 'Add Ingredient', f, :ingredients, class: "btn btn-default add-button"
+      .col-md-6
+        %h4 Directions
+        #directions
+          = f.simple_fields_for :directions do |directions|
+            = render 'direction_form', f: direction
+          .links
+            = link_to_add_association "Add Step", f, :directions, class: "btn btn-default add-button"
+  = f.button :submit, class: "btn btn-primary"
