@@ -7,10 +7,10 @@ class Recipe < ApplicationRecord
   has_many :directions
 
   accepts_nested_attributes_for :ingredients,
-                                reject_if: :all_blank,
+                                reject_if: proc { |attributes| attributes['name'].blank? },
                                 allow_destroy: true
   accepts_nested_attributes_for :directions,
-                                reject_if: :all_blank,
+                                reject_if: proc { |attributes| attributes['step'].blank? },
                                 allow_destroy: true
 
   private
@@ -19,6 +19,6 @@ class Recipe < ApplicationRecord
       errors.add(:image, "Incorrect format type")
     elsif !image.attached?
       errors.add(:image, "Image is missing")
-    end  
+    end
   end
 end
