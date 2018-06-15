@@ -2,6 +2,7 @@ class Recipe < ApplicationRecord
   validates :title, uniqueness: true
   validates :description, presence: true
   validate :correct_image
+  belongs_to :user
   has_one_attached :image
   has_many :ingredients
   has_many :directions
