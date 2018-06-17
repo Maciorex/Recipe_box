@@ -7,11 +7,11 @@ class RecipesController < ApplicationController
   def show; end
 
   def new
-    @recipe = Recipe.new
+    @recipe = current_user.recipes.build
   end
 
   def create
-    @recipe = Recipe.new(recipes_params)
+    @recipe = current_user.recipes.build(recipes_params)
     if @recipe.save
       redirect_to root_path, notice: "Recipe saved"
     else

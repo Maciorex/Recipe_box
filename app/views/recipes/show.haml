@@ -7,6 +7,9 @@
       #recipe_info
         %h1= @recipe.title
         %p.description= @recipe.description
+        %p
+          Posted by
+          = @recipe.user.email
   .row
     .col-md-6
       #ingredients
@@ -24,5 +27,7 @@
     .col-md-12
       .btn-group
         = link_to "Back", root_path, class: "btn btn-default"
-        = link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-default"
-        = link_to "Delete", recipe_path(@recipe), method: :delete, data: { confirm: "Are you suer?" }, class: "btn btn-danger"
+        - if user_signed_in?
+          - if current_user.id == @recipe.user_id
+            = link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-default"
+            = link_to "Delete", recipe_path(@recipe), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"
