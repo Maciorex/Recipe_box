@@ -14,6 +14,14 @@ class Recipe < ApplicationRecord
                                 reject_if: proc { |attributes| attributes['step'].blank? },
                                 allow_destroy: true
 
+  def thumbnail
+    self.image.variant(resize: '300x300!')
+  end
+
+  def show_image
+    self.image.variant(resize: '400x400')
+  end
+
   private
   def correct_image
     if image.attached? && !image.content_type.in?(%w( image/img image/jpg image/jpeg image/png))

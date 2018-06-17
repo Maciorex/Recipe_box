@@ -18,6 +18,7 @@ gem 'jquery-rails'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'simple_form'
 gem 'cocoon'
+gem 'mini_magick', '~> 4.8'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -1,9 +1,9 @@
 .main_content
   #recipe_top.row
-    .col-md-4
+    .col-md-6
       .recipe_image
-        = image_tag @recipe.image
-    .col-md-8
+        = image_tag @recipe.show_image
+    .col-md-6
       #recipe_info
         %h1= @recipe.title
         %p.description= @recipe.description
