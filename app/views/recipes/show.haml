@@ -10,7 +10,10 @@
         %p
           Posted by
           = @recipe.user.email
-        %p= link_to "Add to favorites", '#', class: "btn btn-xs  btn-default"
+        %p= link_to favorite_text, favorites_update_path(recipe: @recipe),
+                                  id: 'favorite_link',
+                                  class: "btn btn-xs btn-default",
+                                  remote: true
   .row
     .col-md-6
       #ingredients
@@ -31,4 +34,6 @@
         - if user_signed_in?
           - if current_user.id == @recipe.user_id
             = link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-default"
-            = link_to "Delete", recipe_path(@recipe), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger"
+            = link_to "Delete", recipe_path(@recipe), method: :delete,
+                                                      data: { confirm: "Are you sure?" },
+                                                      class: "btn btn-danger"

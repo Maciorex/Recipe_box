@@ -1,0 +1,11 @@
+%h1 Favorite recipies
+%hr
+- @favorites.each_slice(3) do |favorites|
+  .row
+    - favorites.each do |favorite|
+      .col-md-4
+        .recipe
+          .image_wrapper
+            = link_to favorite.recipe do
+              = image_tag favorite.recipe.thumbnail
+          %h3= link_to favorite.recipe.title, favorite.recipe

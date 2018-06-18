@@ -15,6 +15,7 @@ gem 'haml'
 gem 'devise'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'jquery-rails'
+gem 'jquery'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'simple_form'
 gem 'cocoon'

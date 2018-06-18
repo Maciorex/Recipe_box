@@ -4,7 +4,9 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all.order("created_at DESC")
   end
 
-  def show; end
+  def show
+    @favorite_exists = Favorite.where(recipe: @recipe, user: current_user).empty? ? false : true
+  end
 
   def new
     @recipe = current_user.recipes.build

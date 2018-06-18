@@ -5,6 +5,7 @@
     %ul.nav.navbar-nav.navbar-left
       - if user_signed_in?
         %li= link_to "Add Recipie", new_recipe_path
+        %li= link_to "My Favorite Recipies", favorites_show_path
     %ul.nav.navbar-nav.navbar-right
       - if user_signed_in?
         %li= link_to "My Account", edit_user_registration_path

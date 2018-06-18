@@ -9,8 +9,12 @@ class FavoritesController < ApplicationController
       @favorite_exists = false
     end
     respond_to do |format|
-
-
+      format.html {}
+      format.js {}
     end
+  end
+
+  def show
+    @favorites = Favorite.where(user: current_user)
   end
 end
