@@ -10,6 +10,7 @@
         %p
           Posted by
           = @recipe.user.email
+        %p= link_to "Add to favorites", '#', class: "btn btn-xs  btn-default"
   .row
     .col-md-6
       #ingredients
